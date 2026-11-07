@@ -1,0 +1,861 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>豆包漫画-漫画推荐与全集阅读_豆包漫画在线看_豆包漫画热门榜单</title>
+  <meta name="description" content="豆包漫画是一个专注漫画推荐与在线阅读的内容专题站，提供豆包漫画热门榜单、全集阅读入口、新番更新与经典作品解析。无论你是寻找豆包漫画全集、免费在线看，还是想了解豆包漫画口碑与角色看点，这里都有清晰的分类与编辑推荐。">
+  <meta name="keywords" content="豆包漫画,豆包漫画在线看,豆包漫画全集,豆包漫画推荐,豆包漫画热门">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23ff7b5c'/%3E%3Ctext x='50' y='68' font-size='48' text-anchor='middle' fill='white' font-family='sans-serif'%3E豆%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #fbf7f2;
+      --surface: #ffffff;
+      --ink: #1e1e2a;
+      --muted: #5e5e72;
+      --line: #ece5dd;
+      --brand: #ff7b5c;
+      --brand-soft: #ffede8;
+      --accent: #3e7b6d;
+      --accent-soft: #e2f0ec;
+      --shadow: 0 6px 18px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+      --radius: 22px;
+      --radius-sm: 16px;
+      --max: 1200px;
+      --font: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font);
+      line-height: 1.6;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    /* 导航 */
+    .masthead {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .masthead__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo__mark {
+      width: 38px;
+      height: 38px;
+      background: var(--brand);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+    .logo__text {
+      color: var(--ink);
+    }
+    .logo__text span {
+      color: var(--brand);
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      align-items: center;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+    .nav-links a {
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .nav-links a:hover {
+      color: var(--brand);
+      border-bottom-color: var(--brand);
+    }
+    .nav-search {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg);
+      border-radius: 40px;
+      padding: 6px 16px;
+      border: 1px solid var(--line);
+    }
+    .nav-search input {
+      border: none;
+      background: transparent;
+      padding: 8px 0;
+      font-size: 0.9rem;
+      outline: none;
+      width: 160px;
+    }
+    .nav-search button {
+      background: var(--brand);
+      border: none;
+      color: white;
+      border-radius: 30px;
+      padding: 6px 18px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: default;
+    }
+    /* Banner */
+    .hero {
+      margin-top: 28px;
+      background: linear-gradient(135deg, #fff5f0 0%, #ffe9e2 100%);
+      border-radius: var(--radius);
+      padding: 42px 44px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      box-shadow: var(--shadow);
+    }
+    .hero__content {
+      flex: 1 1 360px;
+    }
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--brand);
+    }
+    .hero p {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 6px;
+      max-width: 540px;
+    }
+    .hero__search {
+      display: flex;
+      background: white;
+      border-radius: 60px;
+      padding: 4px 4px 4px 20px;
+      margin-top: 22px;
+      max-width: 460px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+      border: 1px solid var(--line);
+    }
+    .hero__search input {
+      border: none;
+      outline: none;
+      flex: 1;
+      font-size: 1rem;
+      background: transparent;
+    }
+    .hero__search span {
+      background: var(--brand);
+      color: white;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .hero__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 22px;
+    }
+    .hero__tags a {
+      background: rgba(255, 255, 255, 0.75);
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      color: var(--ink);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      transition: background 0.15s;
+    }
+    .hero__tags a:hover {
+      background: white;
+      border-color: var(--brand);
+    }
+    .hero__cover {
+      flex: 0 0 200px;
+      display: flex;
+      justify-content: center;
+    }
+    .hero__cover-box {
+      width: 160px;
+      height: 200px;
+      background: linear-gradient(145deg, #ffb9a8, #ff7b5c);
+      border-radius: 20px;
+      box-shadow: 12px 12px 0 rgba(255, 123, 92, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 2.4rem;
+      transform: rotate(3deg);
+    }
+    /* 通用 Section */
+    .section {
+      margin-top: 60px;
+    }
+    .section__head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .section__title {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .section__title span {
+      color: var(--brand);
+    }
+    .section__more {
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-bottom: 1px dashed var(--line);
+    }
+    /* 卡片网格 */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 24px rgba(0, 0, 0, 0.06);
+    }
+    .card__title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 10px 0;
+    }
+    .tag {
+      background: var(--brand-soft);
+      color: var(--brand);
+      padding: 3px 12px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    .tag--accent {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    .card__desc {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin: 12px 0 14px;
+    }
+    .card__meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: #9b9bae;
+    }
+    /* 最新更新列表 */
+    .update-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .update-item {
+      display: flex;
+      align-items: center;
+      padding: 16px 22px;
+      border-bottom: 1px solid var(--line);
+      gap: 16px;
+      flex-wrap: wrap;
+      transition: background 0.1s;
+    }
+    .update-item:last-child {
+      border-bottom: none;
+    }
+    .update-item:hover {
+      background: #fdf5f1;
+    }
+    .update-item__name {
+      font-weight: 600;
+      min-width: 140px;
+    }
+    .update-item__badge {
+      font-size: 0.7rem;
+      background: var(--brand-soft);
+      color: var(--brand);
+      padding: 2px 10px;
+      border-radius: 30px;
+      white-space: nowrap;
+    }
+    .update-item__summary {
+      color: var(--muted);
+      font-size: 0.9rem;
+      flex: 1;
+    }
+    .update-item__time {
+      font-size: 0.8rem;
+      color: #aeaebe;
+    }
+    /* 分类入口 */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 16px;
+    }
+    .cat-item {
+      background: white;
+      border-radius: 40px;
+      padding: 16px 10px;
+      text-align: center;
+      border: 1px solid var(--line);
+      font-weight: 500;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .cat-item:hover {
+      background: var(--brand-soft);
+      border-color: var(--brand);
+    }
+    /* 深度解析 */
+    .deep-dive {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 44px 48px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+    }
+    .deep-dive h2 {
+      font-size: 1.7rem;
+      margin-bottom: 24px;
+    }
+    .deep-dive p {
+      color: #2f2f3f;
+      margin-bottom: 18px;
+      font-size: 1.02rem;
+      line-height: 1.8;
+    }
+    .deep-dive strong {
+      color: var(--brand);
+      font-weight: 700;
+    }
+    /* FAQ 卡片问答 */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .faq-item {
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      padding: 22px 24px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .faq-item h3 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+      display: flex;
+      gap: 8px;
+    }
+    .faq-item h3::before {
+      content: "Q";
+      color: var(--brand);
+      font-weight: 800;
+    }
+    .faq-item p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    /* 评论 */
+    .comment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 18px;
+    }
+    .comment-item {
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+    }
+    .comment-item__head {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .comment-item__name {
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .comment-item__text {
+      font-size: 0.95rem;
+      color: #2c2c3a;
+    }
+    /* 资讯 */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 22px;
+    }
+    .news-card {
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+    .news-card__date {
+      font-size: 0.8rem;
+      color: #9b9bae;
+      margin-bottom: 8px;
+    }
+    .news-card__title {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    .news-card__summary {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    /* 页脚 */
+    .footer {
+      margin-top: 80px;
+      padding: 40px 0 30px;
+      border-top: 1px solid var(--line);
+      background: white;
+    }
+    .footer__inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    .footer__brand {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+    .footer__text {
+      color: var(--muted);
+      font-size: 0.85rem;
+      max-width: 420px;
+    }
+    .footer__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .footer__links a:hover {
+      color: var(--brand);
+    }
+    /* 响应 */
+    @media (max-width: 800px) {
+      .hero {
+        padding: 28px 22px;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .hero__cover {
+        display: none;
+      }
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+      .deep-dive {
+        padding: 28px 22px;
+      }
+      .section__title {
+        font-size: 1.4rem;
+      }
+      .nav-links {
+        font-size: 0.85rem;
+        gap: 8px 14px;
+      }
+    }
+    /* 滚动条美化 */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #ddd6ce;
+      border-radius: 6px;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+  <!-- 导航 -->
+  <header class="masthead">
+    <div class="container masthead__inner">
+      <div class="logo">
+        <div class="logo__mark">豆</div>
+        <div class="logo__text">豆包<span>漫画</span></div>
+      </div>
+      <nav class="nav-links">
+        <a href="/#home">首页</a>
+        <a href="/#ranking">热门榜单</a>
+        <a href="/#latest">最新更新</a>
+        <a href="/#categories">分类</a>
+        <a href="/#deepdive">深度解析</a>
+        <a href="/#faq">常见问题</a>
+        <a href="/#comments">评论</a>
+        <a href="/#news">资讯</a>
+      </nav>
+      <div class="nav-search">
+        <input type="text" placeholder="搜索豆包漫画..." aria-label="搜索豆包漫画">
+        <button>搜索</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- 首屏 Banner -->
+    <section id="home" class="hero">
+      <div class="hero__content">
+        <h1><em>豆包漫画</em> 全集在线阅读与热门推荐</h1>
+        <p>聚合豆包漫画热门作品、最新更新、口碑榜单与深度解析，一站式满足你的漫画消费需求。</p>
+        <p>2026年11月7日编辑精选，从经典到新番，分类清晰，追更不迷路。</p>
+        <div class="hero__search">
+          <input type="text" placeholder="搜漫画名、作者或题材..." aria-label="搜索漫画">
+          <span>🔍</span>
+        </div>
+        <div class="hero__tags">
+          <a href="/#ranking">热门榜单</a>
+          <a href="/#latest">今日更新</a>
+          <a href="/#categories">恋爱喜剧</a>
+          <a href="/#categories">热血冒险</a>
+          <a href="/#categories">悬疑推理</a>
+          <a href="/#categories">治愈日常</a>
+          <a href="/#deepdive">编辑推荐</a>
+          <a href="/#faq">新手指南</a>
+        </div>
+      </div>
+      <div class="hero__cover">
+        <div class="hero__cover-box">漫</div>
+      </div>
+    </section>
+
+    <!-- 内容简介 / 平台介绍 -->
+    <section class="section" id="intro">
+      <div class="section__head">
+        <h2 class="section__title">关于<span>豆包漫画</span></h2>
+      </div>
+      <div class="deep-dive" style="padding:36px 40px;">
+        <p><strong>豆包漫画</strong> 是一个为漫画爱好者打造的内容聚合与推荐专题。无论你喜欢热血战斗、恋爱日常，还是悬疑烧脑、治愈奇幻，这里都能找到适合你的作品。我们围绕 <strong>豆包漫画</strong> 的热门度、更新节奏和读者口碑，梳理出清晰的分类入口、编辑推荐和榜单体系，帮助你快速定位想看的漫画。</p>
+        <p>本页面适合三类读者：一是刚接触 <strong>豆包漫画</strong> 的新人，想了解有哪些值得一看的作品；二是追更中的老读者，需要关注最新更新与同类型推荐；三是希望从深度解析中理解作品风格与看点的内容消费者。我们不仅提供 <strong>豆包漫画</strong> 的全集阅读导航，还整理了角色分析、节奏体验和同类对比，让你在点击之前就能形成合理的预期。</p>
+        <p>为什么值得收藏？因为 <strong>豆包漫画</strong> 的内容库持续扩充，页面会定期同步热门作品与更新动态。你可以通过分类筛选和标签快速跳转，也可以在评论区看到其他读者的真实讨论。省去反复搜索和筛选的时间，把精力留给阅读本身。</p>
+      </div>
+    </section>
+
+    <!-- 热门内容推荐 -->
+    <section class="section" id="ranking">
+      <div class="section__head">
+        <h2 class="section__title">热门<span>豆包漫画</span>推荐</h2>
+        <a href="/#ranking" class="section__more">查看全部 →</a>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="card__title">《星尘回响》</div>
+          <div class="tag-group"><span class="tag">科幻</span><span class="tag tag--accent">冒险</span><span class="tag">连载中</span></div>
+          <p class="card__desc">星际航行者意外获得古老星图，每一颗星球都藏着不同的文明谜题。画面分镜大气，适合喜欢宇宙冒险的读者。</p>
+          <div class="card__meta"><span>🔥 热度 9.8w</span><span>更新至 47 话</span></div>
+        </article>
+        <article class="card">
+          <div class="card__title">《春日便利店》</div>
+          <div class="tag-group"><span class="tag">治愈</span><span class="tag tag--accent">日常</span><span class="tag">完结</span></div>
+          <p class="card__desc">深夜便利店店员与形形色色顾客的温暖故事，节奏舒缓，适合睡前阅读。人物刻画细腻，台词有生活感。</p>
+          <div class="card__meta"><span>⭐ 9.5分</span><span>全 32 话</span></div>
+        </article>
+        <article class="card">
+          <div class="card__title">《剑与咖啡》</div>
+          <div class="tag-group"><span class="tag">奇幻</span><span class="tag tag--accent">喜剧</span><span class="tag">连载中</span></div>
+          <p class="card__desc">异世界勇者退休后开咖啡馆，用魔法解决顾客烦恼。轻松搞笑中带一点温情，画风明快。</p>
+          <div class="card__meta"><span>🔥 热度 7.2w</span><span>更新至 29 话</span></div>
+        </article>
+        <article class="card">
+          <div class="card__title">《迷雾侦探社》</div>
+          <div class="tag-group"><span class="tag">悬疑</span><span class="tag tag--accent">推理</span><span class="tag">连载中</span></div>
+          <p class="card__desc">每个案件都与主线谜团环环相扣，线索埋设合理，适合喜欢动脑的读者。主角搭档互动有趣。</p>
+          <div class="card__meta"><span>⭐ 9.3分</span><span>更新至 61 话</span></div>
+        </article>
+        <article class="card">
+          <div class="card__title">《甜度超标》</div>
+          <div class="tag-group"><span class="tag">恋爱</span><span class="tag tag--accent">校园</span><span class="tag">连载中</span></div>
+          <p class="card__desc">甜品部少女与冷淡学霸的甜蜜日常，分镜充满少女心，糖分十足。配角也各有萌点。</p>
+          <div class="card__meta"><span>🔥 热度 8.6w</span><span>更新至 38 话</span></div>
+        </article>
+        <article class="card">
+          <div class="card__title">《山海食堂》</div>
+          <div class="tag-group"><span class="tag">美食</span><span class="tag tag--accent">奇幻</span><span class="tag">连载中</span></div>
+          <p class="card__desc">用山海经异兽做食材的深夜食堂，每道菜都有故事。画风细腻，食物描绘诱人。</p>
+          <div class="card__meta"><span>⭐ 9.1分</span><span>更新至 22 话</span></div>
+        </article>
+        <article class="card">
+          <div class="card__title">《机械之心》</div>
+          <div class="tag-group"><span class="tag">热血</span><span class="tag tag--accent">机战</span><span class="tag">连载中</span></div>
+          <p class="card__desc">少年驾驶机甲对抗神秘生物，战斗场面张力十足，主角成长线清晰。适合热血漫爱好者。</p>
+          <div class="card__meta"><span>🔥 热度 9.0w</span><span>更新至 55 话</span></div>
+        </article>
+        <article class="card">
+          <div class="card__title">《猫町物语》</div>
+          <div class="tag-group"><span class="tag">治愈</span><span class="tag tag--accent">萌系</span><span class="tag">完结</span></div>
+          <p class="card__desc">能变成猫的少女与小镇居民的日常，单元剧形式，温馨治愈。画风柔软，适合放松心情。</p>
+          <div class="card__meta"><span>⭐ 9.6分</span><span>全 24 话</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 最新更新 -->
+    <section class="section" id="latest">
+      <div class="section__head">
+        <h2 class="section__title">最新<span>豆包漫画</span>更新动态</h2>
+        <span class="section__more">2026年11月7日 更新</span>
+      </div>
+      <div class="update-list">
+        <div class="update-item"><span class="update-item__name">《星尘回响》</span><span class="update-item__badge">第47话</span><span class="update-item__summary">主角团队抵达“回音星”，发现失落文明的遗迹。</span><span class="update-item__time">今日 09:30</span></div>
+        <div class="update-item"><span class="update-item__name">《迷雾侦探社》</span><span class="update-item__badge">第61话</span><span class="update-item__summary">新案件涉及旧城区连环失踪，线索指向十年前旧案。</span><span class="update-item__time">今日 10:15</span></div>
+        <div class="update-item"><span class="update-item__name">《甜度超标》</span><span class="update-item__badge">第38话</span><span class="update-item__summary">学园祭甜品对决，女主意外获得神秘配方。</span><span class="update-item__time">今日 11:00</span></div>
+        <div class="update-item"><span class="update-item__name">《剑与咖啡》</span><span class="update-item__badge">第29话</span><span class="update-item__summary">勇者用“爆裂魔法”烘豆，差点烧了店铺。</span><span class="update-item__time">今日 12:20</span></div>
+        <div class="update-item"><span class="update-item__name">《机械之心》</span><span class="update-item__badge">第55话</span><span class="update-item__summary">主角与宿敌首次联手，对抗巨型异兽。</span><span class="update-item__time">今日 14:00</span></div>
+        <div class="update-item"><span class="update-item__name">《山海食堂》</span><span class="update-item__badge">第22话</span><span class="update-item__summary">新菜品“九尾狐拉面”引发食客争夺战。</span><span class="update-item__time">今日 15:30</span></div>
+        <div class="update-item"><span class="update-item__name">《春日便利店》</span><span class="update-item__badge">番外篇</span><span class="update-item__summary">作者发布万圣节特别短篇，全员变装。</span><span class="update-item__time">今日 16:10</span></div>
+        <div class="update-item"><span class="update-item__name">《猫町物语》</span><span class="update-item__badge">番外篇</span><span class="update-item__summary">猫咪祭典番外，小镇居民集体变成猫。</span><span class="update-item__time">今日 17:00</span></div>
+      </div>
+    </section>
+
+    <!-- 分类入口 -->
+    <section class="section" id="categories">
+      <div class="section__head">
+        <h2 class="section__title">按题材分类找<span>豆包漫画</span></h2>
+      </div>
+      <div class="cat-grid">
+        <a href="/#categories" class="cat-item">热血冒险</a>
+        <a href="/#categories" class="cat-item">恋爱喜剧</a>
+        <a href="/#categories" class="cat-item">悬疑推理</a>
+        <a href="/#categories" class="cat-item">奇幻魔法</a>
+        <a href="/#categories" class="cat-item">治愈日常</a>
+        <a href="/#categories" class="cat-item">科幻机战</a>
+        <a href="/#categories" class="cat-item">美食生活</a>
+        <a href="/#categories" class="cat-item">校园青春</a>
+      </div>
+    </section>
+
+    <!-- 深度解析正文 -->
+    <section class="section" id="deepdive">
+      <div class="section__head">
+        <h2 class="section__title">深度解析：<span>豆包漫画</span>的题材与消费体验</h2>
+      </div>
+      <div class="deep-dive">
+        <p><strong>豆包漫画</strong> 所涵盖的作品风格多元，从热血战斗到治愈日常，基本覆盖了主流漫画读者的偏好。很多读者搜索“豆包漫画”时，往往希望快速找到一部符合当下心情的作品——可能是需要激动人心的冒险，也可能是想被温柔的故事治愈。因此，本页在推荐逻辑上不仅展示单部作品，更通过题材标签和分类入口让读者可以按图索骥。</p>
+        <p>从内容吸引点来看，<strong>豆包漫画</strong> 平台上的热门作品普遍具备两个特征：一是人设鲜明，主角和配角都有记忆点，读者容易产生情感投射；二是节奏把控到位，每话结尾留有钩子，适合追更阅读。例如《星尘回响》以单元星球冒险串联主线，每一话都有独立看点；《迷雾侦探社》则在案件之间埋设长线伏笔，满足推理爱好者的解谜欲。</p>
+        <p>在人物塑造上，<strong>豆包漫画</strong> 的编辑推荐更关注角色的成长弧光。比如《机械之心》中主角从莽撞少年到团队领袖的转变，并非一蹴而就，而是通过多次战斗和失去逐渐成型。这种慢热但扎实的成长线，让读者更有代入感。而《甜度超标》中的恋爱线则注重日常细节的累积，用大量微小的互动堆叠出可信的情感。</p>
+        <p>视听表现方面，<strong>豆包漫画</strong> 中评价较高的作品通常拥有清晰的分镜逻辑和独特的画风。《猫町物语》用柔和的线条和淡雅的配色营造出治愈氛围；《剑与咖啡》则采用明快的色块和夸张的表情包式演出，喜剧效果突出。对于重视画面表现的读者，可以在分类中优先选择画风标签。</p>
+        <p>节奏与消费体验密切相关。短篇完结作品如《春日便利店》适合周末一口气读完，而长篇连载如《山海食堂》则适合碎片时间追更。<strong>豆包漫画</strong> 页面提供了更新时间和话数信息，方便读者根据自己的时间安排选择。此外，同类作品的对比也是许多读者关心的——如果你喜欢《迷雾侦探社》的推理节奏，可以尝试同属悬疑分类的其他作品；如果偏爱《甜度超标》的校园恋爱，校园青春分类下还有更多选择。</p>
+        <p>最后，读者搜索“<strong>豆包漫画</strong>”时，通常希望获得清晰的阅读顺序或推荐列表。本页通过热门推荐、最新更新和分类入口的组合，尽量覆盖从入门到进阶的需求。我们建议新读者从完结作品或人气较高的连载开始，逐步扩展到不同题材，找到最适合自己的阅读节奏。</p>
+      </div>
+    </section>
+
+    <!-- 体验指南模块 -->
+    <section class="section" id="guide">
+      <div class="section__head">
+        <h2 class="section__title"><span>豆包漫画</span>页面使用指南</h2>
+      </div>
+      <div class="deep-dive" style="padding:30px 36px;">
+        <p style="margin-bottom:12px;">本页面以内容消费为导向，结构清晰：顶部导航可快速跳转至热门榜单、最新更新、分类、深度解析、FAQ、评论和资讯。首屏搜索框支持按名称或题材检索，适合已有目标的读者。如果没有明确目标，可以通过分类入口或热门推荐卡片发现新作品。</p>
+        <p style="margin-bottom:12px;">在移动端，页面自动适配小屏幕，卡片和列表均保持良好可读性，方便追更时快速浏览。评论区展示了近期读者讨论，可作为参考。FAQ 模块收集了常见问题，帮助新读者减少决策成本。所有推荐内容均标注了更新状态和热度，便于判断。</p>
+        <p>相关推荐与资讯模块提供了扩展阅读路径，适合希望深入了解<strong>豆包漫画</strong>生态的读者。页面支持收藏，方便下次继续浏览。</p>
+      </div>
+    </section>
+
+    <!-- FAQ 双栏问答 -->
+    <section class="section" id="faq">
+      <div class="section__head">
+        <h2 class="section__title">关于<span>豆包漫画</span>的常见问题</h2>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>豆包漫画适合新手从哪部开始看？</h3>
+          <p>建议从完结作品或单元剧开始，例如《春日便利店》和《猫町物语》，每话独立性强，容易进入状态。如果偏好连续剧情，可以从《星尘回响》前10话试读。</p>
+        </div>
+        <div class="faq-item">
+          <h3>豆包漫画的更新频率是怎样的？</h3>
+          <p>不同作品更新节奏不同，热门连载通常每周更新1话，部分作品双周更。本页“最新更新”模块会展示当日有更新的作品，方便追更。</p>
+        </div>
+        <div class="faq-item">
+          <h3>如何在豆包漫画中筛选自己喜欢的类型？</h3>
+          <p>可以使用分类入口，按热血、恋爱、悬疑、治愈等标签筛选。也可以利用搜索框输入关键词，或参考卡片上的标签快速判断。</p>
+        </div>
+        <div class="faq-item">
+          <h3>豆包漫画有没有类似《迷雾侦探社》的推理作品？</h3>
+          <p>悬疑推理分类下还有多部同类作品，例如《暗巷追踪》和《记忆碎片》，均注重线索铺陈与反转，可在分类入口查看。</p>
+        </div>
+        <div class="faq-item">
+          <h3>豆包漫画的评分和热度是怎么来的？</h3>
+          <p>评分和热度基于站内读者互动行为综合计算，包括收藏、评论和阅读完成度，仅供参考。详细数据可关注后续更新的数据面板。</p>
+        </div>
+        <div class="faq-item">
+          <h3>能在豆包漫画找到已完结的短篇吗？</h3>
+          <p>可以，完结作品通常有明确标注。例如《春日便利店》全32话，《猫町物语》全24话，适合想一次性读完的读者。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 用户评论 -->
+    <section class="section" id="comments">
+      <div class="section__head">
+        <h2 class="section__title">读者聊<span>豆包漫画</span></h2>
+        <span class="section__more">近30天精选</span>
+      </div>
+      <div class="comment-grid">
+        <div class="comment-item"><div class="comment-item__head"><span class="comment-item__name">追更小能手</span><span>11月5日</span></div><div class="comment-item__text">《星尘回响》第47话太震撼了，回音星的设定完全超出预期，期待下一话！</div></div>
+        <div class="comment-item"><div class="comment-item__head"><span class="comment-item__name">咖啡不加糖</span><span>11月3日</span></div><div class="comment-item__text">《剑与咖啡》笑死我了，勇者用爆裂魔法烘豆子，直接把厨房炸了，画风也很可爱。</div></div>
+        <div class="comment-item"><div class="comment-item__head"><span class="comment-item__name">推理迷阿杰</span><span>11月6日</span></div><div class="comment-item__text">迷雾侦探社的案子越来越复杂了，第61话的线索感觉指向很深的阴谋，坐等填坑。</div></div>
+        <div class="comment-item"><div class="comment-item__head"><span class="comment-item__name">一只团子</span><span>10月28日</span></div><div class="comment-item__text">《甜度超标》最新一话甜到掉牙，学园祭的互动太可爱了，希望作者多画点配角戏份。</div></div>
+        <div class="comment-item"><div class="comment-item__head"><span class="comment-item__name">机械宅</span><span>11月1日</span></div><div class="comment-item__text">《机械之心》的战斗分镜真的强，第55话联手那段燃爆了，就是更新有点慢。</div></div>
+        <div class="comment-item"><div class="comment-item__head"><span class="comment-item__name">山海食客</span><span>10月30日</span></div><div class="comment-item__text">《山海食堂》每次看都饿，作者是不是兼职厨师？九尾狐拉面听起来就很好吃。</div></div>
+        <div class="comment-item"><div class="comment-item__head"><span class="comment-item__name">猫町居民</span><span>11月4日</span></div><div class="comment-item__text">《猫町物语》番外篇全员变成猫太萌了，希望作者能出第二季！</div></div>
+        <div class="comment-item"><div class="comment-item__head"><span class="comment-item__name">路人甲</span><span>10月27日</span></div><div class="comment-item__text">刚入坑豆包漫画，分类做得很清楚，按照标签找了几部都挺对胃口。</div></div>
+        <div class="comment-item"><div class="comment-item__head"><span class="comment-item__name">星尘旅人</span><span>11月2日</span></div><div class="comment-item__text">《星尘回响》的设定很宏大，但最近几话节奏有点慢，希望主线推进快一些。</div></div>
+        <div class="comment-item"><div class="comment-item__head"><span class="comment-item__name">春日常客</span><span>10月29日</span></div><div class="comment-item__text">《春日便利店》完结后心里空落落的，这种日常治愈漫真的不够看。</div></div>
+        <div class="comment-item"><div class="comment-item__head"><span class="comment-item__name">剑与魔法</span><span>11月5日</span></div><div class="comment-item__text">《剑与咖啡》的勇者设定太有梗了，希望多出点关于其他顾客的故事。</div></div>
+        <div class="comment-item"><div class="comment-item__head"><span class="comment-item__name">悬疑爱好者</span><span>10月31日</span></div><div class="comment-item__text">迷雾侦探社的旧案设计得很巧妙，希望作者能保持这个水准到完结。</div></div>
+        <div class="comment-item"><div class="comment-item__head"><span class="comment-item__name">小透明</span><span>11月6日</span></div><div class="comment-item__text">页面整体看起来很舒服，分类和推荐都实用，已经收藏了。</div></div>
+        <div class="comment-item"><div class="comment-item__head"><span class="comment-item__name">漫画收藏家</span><span>11月3日</span></div><div class="comment-item__text">豆包漫画里优秀作品不少，但有些连载更新不稳定，建议标注一下预计更新时间。</div></div>
+      </div>
+    </section>
+
+    <!-- 相关资讯 -->
+    <section class="section" id="news">
+      <div class="section__head">
+        <h2 class="section__title"><span>豆包漫画</span>相关资讯</h2>
+      </div>
+      <div class="news-grid">
+        <article class="news-card">
+          <div class="news-card__date">2026年11月6日</div>
+          <div class="news-card__title">《星尘回响》单行本第6卷发售，收录全新番外</div>
+          <div class="news-card__summary">官方宣布单行本第6卷将于12月上市，包含未公开的星图设定集和作者访谈。</div>
+        </article>
+        <article class="news-card">
+          <div class="news-card__date">2026年11月5日</div>
+          <div class="news-card__title">《迷雾侦探社》作者确认将推出广播剧</div>
+          <div class="news-card__summary">改编广播剧预计2027年春季上线，主役声优阵容公开，粉丝反响热烈。</div>
+        </article>
+        <article class="news-card">
+          <div class="news-card__date">2026年11月4日</div>
+          <div class="news-card__title">豆包漫画11月新作《夜航船》上线，悬疑+民俗题材</div>
+          <div class="news-card__summary">新连载《夜航船》以民国时期为背景，融合民俗与推理，首周更新三话。</div>
+        </article>
+        <article class="news-card">
+          <div class="news-card__date">2026年11月2日</div>
+          <div class="news-card__title">《甜度超标》联动甜品店，推出限定活动</div>
+          <div class="news-card__summary">作品与线下甜品店合作，推出角色主题甜品，活动持续至月底。</div>
+        </article>
+        <article class="news-card">
+          <div class="news-card__date">2026年10月30日</div>
+          <div class="news-card__title">《猫町物语》作者新作筹备中，预计明年连载</div>
+          <div class="news-card__summary">作者在社交平台透露新作为奇幻冒险题材，延续治愈画风，值得期待。</div>
+        </article>
+        <article class="news-card">
+          <div class="news-card__date">2026年10月28日</div>
+          <div class="news-card__title">豆包漫画人气投票结果公布，《星尘回响》登顶</div>
+          <div class="news-card__summary">为期两周的人气投票结束，《星尘回响》以微弱优势领先《迷雾侦探社》。</div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <div class="footer__brand">豆包漫画 · 内容专题</div>
+        <p class="footer__text">本站为漫画推荐与资讯聚合页面，所有作品信息仅供参考。具体内容请以官方发布为准。</p>
+        <p class="footer__text" style="margin-top:8px;">© 2026 豆包漫画内容站 版权所有</p>
+      </div>
+      <div class="footer__links">
+        <a href="/#home">首页</a>
+        <a href="/#ranking">热门榜单</a>
+        <a href="/#latest">最新更新</a>
+        <a href="/#categories">分类</a>
+        <a href="/#deepdive">深度解析</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/#news">资讯</a>
+        <a href="/#comments">评论</a>
+        <span>友情链接：漫画之家 | 二次元频道 | 阅读指南</span>
+      </div>
+    </div>
+  </footer>
+</body>
+          </html>
